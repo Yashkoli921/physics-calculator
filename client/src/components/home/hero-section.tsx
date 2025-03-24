@@ -1,17 +1,32 @@
-import { Link } from "wouter";
-import { useRef, useEffect } from "react";
-import { setupPendulumScene } from "@/lib/three-utils";
-import { ArrowRight, Sparkles, Zap, Calculator, ChevronRight } from "lucide-react";
+import { Link, useLocation } from "wouter";
+import { useRef, useEffect, useState } from "react";
+import { setupAtomScene } from "@/lib/three-utils";
+import { ArrowRight, Sparkles, Zap, Calculator, ChevronRight, Play, Atom, Info } from "lucide-react";
 
 export function HeroSection() {
   const canvasContainerRef = useRef<HTMLDivElement>(null);
+  const [, setLocation] = useLocation();
+  const [showInfo, setShowInfo] = useState(false);
   
   useEffect(() => {
     if (canvasContainerRef.current) {
-      const cleanup = setupPendulumScene(canvasContainerRef.current);
+      const cleanup = setupAtomScene(canvasContainerRef.current);
       return cleanup;
     }
   }, []);
+
+  // Function to scroll to calculators section
+  const scrollToCalculators = () => {
+    const calculatorsSection = document.getElementById('calculators');
+    if (calculatorsSection) {
+      calculatorsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
+  // Function to show interactive tutorial popup
+  const showTutorial = () => {
+    setShowInfo(!showInfo);
+  };
   
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#ffe6fe]/80 via-white to-[#ffe6fe]/30 dark:from-[#27112c] dark:via-[#3d0f45]/90 dark:to-[#27112c]/90">
@@ -40,35 +55,45 @@ export function HeroSection() {
             </p>
             
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 md:space-x-5">
-              <Link href="#calculators">
-                <span className="group w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-[#e100ff] to-[#b800d9] hover:from-[#ed29ff] hover:to-[#9200b3] dark:from-[#c203dc] dark:to-[#9907ad] dark:hover:from-[#d727e8] dark:hover:to-[#700b7e] text-white font-medium rounded-full shadow-lg hover:shadow-[#fd7aff]/30 dark:hover:shadow-[#d727e8]/30 text-center transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer inline-flex items-center justify-center">
-                  <Calculator className="mr-2 h-5 w-5" />
-                  <span>Get Started</span>
-                  <ChevronRight className="ml-1 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </Link>
-              <Link href="#calculators">
-                <span className="w-full sm:w-auto px-6 py-3.5 bg-white/80 dark:bg-[#3d0f45]/60 backdrop-blur-sm hover:bg-white dark:hover:bg-[#520e5b] text-[#9200b3] hover:text-[#e100ff] dark:text-[#eb4ff3] dark:hover:text-[#f677f8] font-medium rounded-full shadow-md border border-[#ffa3fd]/30 dark:border-[#700b7e]/50 text-center transition-all duration-300 cursor-pointer inline-flex items-center justify-center group">
-                  <span>Learn More</span>
-                  <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
-                </span>
-              </Link>
+              <button 
+                onClick={() => setLocation('/physics')} 
+                className="group w-full sm:w-auto px-6 py-3.5 bg-gradient-to-r from-[#e100ff] to-[#b800d9] hover:from-[#ed29ff] hover:to-[#9200b3] dark:from-[#c203dc] dark:to-[#9907ad] dark:hover:from-[#d727e8] dark:hover:to-[#700b7e] text-white font-medium rounded-full shadow-lg hover:shadow-[#fd7aff]/30 dark:hover:shadow-[#d727e8]/30 text-center transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer inline-flex items-center justify-center"
+              >
+                <Play className="mr-2 h-5 w-5" />
+                <span>Get Started</span>
+                <ChevronRight className="ml-1 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
+              <button
+                onClick={scrollToCalculators}
+                className="w-full sm:w-auto px-6 py-3.5 bg-white/80 dark:bg-[#3d0f45]/60 backdrop-blur-sm hover:bg-white dark:hover:bg-[#520e5b] text-[#9200b3] hover:text-[#e100ff] dark:text-[#eb4ff3] dark:hover:text-[#f677f8] font-medium rounded-full shadow-md border border-[#ffa3fd]/30 dark:border-[#700b7e]/50 text-center transition-all duration-300 cursor-pointer inline-flex items-center justify-center group"
+              >
+                <span>Learn More</span>
+                <ArrowRight className="ml-2 h-5 w-5 transform group-hover:translate-x-1 transition-transform duration-300" />
+              </button>
             </div>
             
             {/* Feature pills */}
             <div className="flex flex-wrap gap-3 mt-8 md:mt-10">
-              <div className="inline-flex items-center px-3 py-1.5 bg-[#ffe6fe]/80 dark:bg-[#3d0f45]/60 backdrop-blur-sm rounded-full border border-[#ffa3fd]/30 dark:border-[#700b7e]/50">
-                <span className="text-xs font-medium text-[#9200b3] dark:text-[#eb4ff3]">Scientific</span>
-              </div>
-              <div className="inline-flex items-center px-3 py-1.5 bg-[#ffe6fe]/80 dark:bg-[#3d0f45]/60 backdrop-blur-sm rounded-full border border-[#ffa3fd]/30 dark:border-[#700b7e]/50">
-                <span className="text-xs font-medium text-[#9200b3] dark:text-[#eb4ff3]">Physics</span>
-              </div>
-              <div className="inline-flex items-center px-3 py-1.5 bg-[#ffe6fe]/80 dark:bg-[#3d0f45]/60 backdrop-blur-sm rounded-full border border-[#ffa3fd]/30 dark:border-[#700b7e]/50">
-                <span className="text-xs font-medium text-[#9200b3] dark:text-[#eb4ff3]">Graphing</span>
-              </div>
-              <div className="inline-flex items-center px-3 py-1.5 bg-[#ffe6fe]/80 dark:bg-[#3d0f45]/60 backdrop-blur-sm rounded-full border border-[#ffa3fd]/30 dark:border-[#700b7e]/50">
-                <span className="text-xs font-medium text-[#9200b3] dark:text-[#eb4ff3]">Financial</span>
-              </div>
+              <Link href="/scientific">
+                <div className="inline-flex items-center px-3 py-1.5 bg-[#ffe6fe]/80 dark:bg-[#3d0f45]/60 backdrop-blur-sm rounded-full border border-[#ffa3fd]/30 dark:border-[#700b7e]/50 hover:bg-[#ffa3fd]/20 dark:hover:bg-[#520e5b]/60 cursor-pointer transition-all duration-200">
+                  <span className="text-xs font-medium text-[#9200b3] dark:text-[#eb4ff3]">Scientific</span>
+                </div>
+              </Link>
+              <Link href="/physics">
+                <div className="inline-flex items-center px-3 py-1.5 bg-[#ffe6fe]/80 dark:bg-[#3d0f45]/60 backdrop-blur-sm rounded-full border border-[#ffa3fd]/30 dark:border-[#700b7e]/50 hover:bg-[#ffa3fd]/20 dark:hover:bg-[#520e5b]/60 cursor-pointer transition-all duration-200">
+                  <span className="text-xs font-medium text-[#9200b3] dark:text-[#eb4ff3]">Physics</span>
+                </div>
+              </Link>
+              <Link href="/graph">
+                <div className="inline-flex items-center px-3 py-1.5 bg-[#ffe6fe]/80 dark:bg-[#3d0f45]/60 backdrop-blur-sm rounded-full border border-[#ffa3fd]/30 dark:border-[#700b7e]/50 hover:bg-[#ffa3fd]/20 dark:hover:bg-[#520e5b]/60 cursor-pointer transition-all duration-200">
+                  <span className="text-xs font-medium text-[#9200b3] dark:text-[#eb4ff3]">Graphing</span>
+                </div>
+              </Link>
+              <Link href="/financial">
+                <div className="inline-flex items-center px-3 py-1.5 bg-[#ffe6fe]/80 dark:bg-[#3d0f45]/60 backdrop-blur-sm rounded-full border border-[#ffa3fd]/30 dark:border-[#700b7e]/50 hover:bg-[#ffa3fd]/20 dark:hover:bg-[#520e5b]/60 cursor-pointer transition-all duration-200">
+                  <span className="text-xs font-medium text-[#9200b3] dark:text-[#eb4ff3]">Financial</span>
+                </div>
+              </Link>
             </div>
           </div>
           
@@ -82,9 +107,28 @@ export function HeroSection() {
                 className="w-full h-full relative z-20"
               >
                 {/* Three.js will render here */}
-                <div className="absolute bottom-4 right-4 bg-[#ffe6fe]/80 dark:bg-[#520e5b]/80 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-medium text-[#9200b3] dark:text-[#eb4ff3] border border-[#ffa3fd]/30 dark:border-[#700b7e]/50 hidden sm:block">
-                  Interactive 3D Physics Model
+                <div className="absolute bottom-4 right-4 bg-[#ffe6fe]/80 dark:bg-[#520e5b]/80 backdrop-blur-sm px-3 py-1.5 rounded-full text-xs font-medium text-[#9200b3] dark:text-[#eb4ff3] border border-[#ffa3fd]/30 dark:border-[#700b7e]/50 hidden sm:block transition-all duration-200 hover:bg-[#ffa3fd]/50 dark:hover:bg-[#700b7e]/60 cursor-pointer inline-flex items-center space-x-1.5" onClick={showTutorial}>
+                  <Atom className="h-3.5 w-3.5" />
+                  <span>Interactive Atom Model</span>
                 </div>
+                
+                {/* Info popup */}
+                {showInfo && (
+                  <div className="absolute bottom-16 right-4 bg-white dark:bg-[#3d0f45] p-4 rounded-xl shadow-lg max-w-xs border border-[#ffa3fd]/50 dark:border-[#700b7e]/60 text-sm text-neutral-700 dark:text-neutral-200 z-30 animate-fadeIn">
+                    <div className="flex items-start mb-2">
+                      <Info className="h-5 w-5 mr-2 text-[#e100ff] dark:text-[#eb4ff3] flex-shrink-0" />
+                      <span className="font-medium">Interactive 3D Atom Model</span>
+                    </div>
+                    <p className="mb-2">This visualization represents atomic orbitals with electrons moving around the nucleus.</p>
+                    <p>The model rotates and animates to show electron motion in quantum mechanics used in physics calculations.</p>
+                    <button 
+                      onClick={() => setShowInfo(false)}
+                      className="mt-3 w-full px-3 py-1.5 bg-[#ffa3fd]/20 dark:bg-[#700b7e]/30 hover:bg-[#ffa3fd]/30 dark:hover:bg-[#700b7e]/50 text-[#9200b3] dark:text-[#eb4ff3] rounded-lg text-center font-medium text-sm transition-colors"
+                    >
+                      Close
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
