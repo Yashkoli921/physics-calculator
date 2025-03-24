@@ -19,21 +19,21 @@ export function CTASection() {
         <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
           {user ? (
             <Link href="/profile">
-              <a className="px-8 py-3 bg-white text-primary-700 hover:bg-neutral-100 font-medium rounded-lg shadow-lg transition">
+              <span className="px-8 py-3 bg-white text-primary-700 hover:bg-neutral-100 font-medium rounded-lg shadow-lg transition cursor-pointer inline-block">
                 My Profile
-              </a>
+              </span>
             </Link>
           ) : (
             <Link href="/auth">
-              <a className="px-8 py-3 bg-white text-primary-700 hover:bg-neutral-100 font-medium rounded-lg shadow-lg transition">
+              <span className="px-8 py-3 bg-white text-primary-700 hover:bg-neutral-100 font-medium rounded-lg shadow-lg transition cursor-pointer inline-block">
                 Sign Up Free
-              </a>
+              </span>
             </Link>
           )}
           <Link href="#calculators">
-            <a className="px-8 py-3 bg-transparent hover:bg-primary-800/50 border border-white font-medium rounded-lg transition">
+            <span className="px-8 py-3 bg-transparent hover:bg-primary-800/50 border border-white font-medium rounded-lg transition cursor-pointer inline-block">
               Learn More
-            </a>
+            </span>
           </Link>
         </div>
       </div>
