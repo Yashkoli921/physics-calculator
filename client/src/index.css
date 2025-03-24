@@ -3,11 +3,124 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --background: 262 30% 98%;
+    --foreground: 262 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 262 10% 15%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 262 10% 15%;
+ 
+    --primary: 262 80% 50%;
+    --primary-foreground: 262 80% 98%;
+ 
+    --secondary: 262 30% 96%;
+    --secondary-foreground: 262 50% 20%;
+ 
+    --muted: 262 20% 96%;
+    --muted-foreground: 262 20% 45%;
+ 
+    --accent: 262 50% 96%;
+    --accent-foreground: 262 50% 20%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 262 30% 90%;
+    --input: 262 30% 90%;
+    --ring: 262 80% 50%;
+ 
+    --radius: 1rem;
+  }
+ 
+  .dark {
+    --background: 262 30% 5%;
+    --foreground: 262 10% 98%;
+ 
+    --card: 262 30% 7%;
+    --card-foreground: 262 10% 98%;
+ 
+    --popover: 262 30% 7%;
+    --popover-foreground: 262 10% 98%;
+ 
+    --primary: 262 80% 50%;
+    --primary-foreground: 262 10% 98%;
+ 
+    --secondary: 262 30% 15%;
+    --secondary-foreground: 262 10% 98%;
+ 
+    --muted: 262 30% 15%;
+    --muted-foreground: 262 10% 80%;
+ 
+    --accent: 262 50% 15%;
+    --accent-foreground: 262 10% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+ 
+    --border: 262 30% 15%;
+    --input: 262 30% 15%;
+    --ring: 262 80% 80%;
+  }
+
   * {
     @apply border-border;
   }
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+  }
+  
+  /* Custom scrollbar for the entire site */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-background;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/30 hover:bg-primary/40 rounded-full transition-colors;
+  }
+}
+
+/* Utility classes */
+@layer utilities {
+  /* Glass effect */
+  .glass {
+    @apply backdrop-blur-md bg-white/70 dark:bg-neutral-900/70 border border-white/20 dark:border-neutral-700/30;
+  }
+  
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-700 to-primary-500 dark:from-primary-300 dark:to-primary-500 bg-clip-text text-transparent;
+  }
+  
+  /* Animation utilities */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
   }
 }
