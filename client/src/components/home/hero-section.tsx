@@ -25,14 +25,14 @@ export function HeroSection() {
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Link href="#calculators">
-                <a className="px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg shadow-md text-center transition">
+                <span className="px-6 py-3 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg shadow-md text-center transition cursor-pointer inline-block">
                   Get Started
-                </a>
+                </span>
               </Link>
               <Link href="#calculators">
-                <a className="px-6 py-3 bg-white dark:bg-neutral-800 text-primary-500 hover:text-primary-700 dark:text-primary-300 dark:hover:text-primary-100 font-medium rounded-lg shadow-md border border-primary-100 dark:border-neutral-700 text-center transition">
+                <span className="px-6 py-3 bg-white dark:bg-neutral-800 text-primary-500 hover:text-primary-700 dark:text-primary-300 dark:hover:text-primary-100 font-medium rounded-lg shadow-md border border-primary-100 dark:border-neutral-700 text-center transition cursor-pointer inline-block">
                   Learn More
-                </a>
+                </span>
               </Link>
             </div>
           </div>

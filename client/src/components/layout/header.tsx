@@ -28,13 +28,20 @@ export function Header() {
         {/* Navigation - Desktop */}
         <nav className="hidden md:flex items-center space-x-8">
           <Link href="/">
-            <a className="font-medium text-primary-700 dark:text-primary-100">Home</a>
+            <span className="font-medium text-primary-700 dark:text-primary-100 cursor-pointer">Home</span>
           </Link>
-          <Link href="/#calculators">
-            <a className="font-medium text-neutral-600 hover:text-primary-500 dark:text-neutral-300 dark:hover:text-primary-300 transition">Calculators</a>
+          <Link href="/physics">
+            <span className="font-medium text-neutral-600 hover:text-primary-500 dark:text-neutral-300 dark:hover:text-primary-300 transition cursor-pointer">Physics</span>
           </Link>
-          <a href="#" className="font-medium text-neutral-600 hover:text-primary-500 dark:text-neutral-300 dark:hover:text-primary-300 transition">Formulas</a>
-          <a href="#" className="font-medium text-neutral-600 hover:text-primary-500 dark:text-neutral-300 dark:hover:text-primary-300 transition">About</a>
+          <Link href="/scientific">
+            <span className="font-medium text-neutral-600 hover:text-primary-500 dark:text-neutral-300 dark:hover:text-primary-300 transition cursor-pointer">Scientific</span>
+          </Link>
+          <Link href="/graph">
+            <span className="font-medium text-neutral-600 hover:text-primary-500 dark:text-neutral-300 dark:hover:text-primary-300 transition cursor-pointer">Graph</span>
+          </Link>
+          <Link href="/financial">
+            <span className="font-medium text-neutral-600 hover:text-primary-500 dark:text-neutral-300 dark:hover:text-primary-300 transition cursor-pointer">Financial</span>
+          </Link>
         </nav>
         
         {/* User Actions */}
@@ -61,14 +68,14 @@ export function Header() {
           ) : (
             <div className="hidden md:flex items-center space-x-4">
               <Link href="/auth">
-                <a className="px-4 py-2 font-medium text-primary-500 hover:text-primary-700 dark:text-primary-300 dark:hover:text-primary-100 transition">
+                <span className="px-4 py-2 font-medium text-primary-500 hover:text-primary-700 dark:text-primary-300 dark:hover:text-primary-100 transition cursor-pointer">
                   Log in
-                </a>
+                </span>
               </Link>
               <Link href="/auth">
-                <a className="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg shadow-md transition">
+                <span className="px-4 py-2 bg-primary-500 hover:bg-primary-600 text-white font-medium rounded-lg shadow-md transition cursor-pointer">
                   Sign up
-                </a>
+                </span>
               </Link>
             </div>
           )}
@@ -78,7 +85,9 @@ export function Header() {
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="md:hidden text-neutral-700 dark:text-neutral-200"
           >
-            <span className="material-icons">menu</span>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
           </button>
         </div>
       </div>
