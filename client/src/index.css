@@ -4,65 +4,91 @@
 
 @layer base {
   :root {
-    --background: 262 30% 98%;
-    --foreground: 262 10% 15%;
+    /* Light mode - Pink/Purple gradient */
+    --background: 300 100% 95%;
+    --foreground: 296 100% 20%;
 
     --card: 0 0% 100%;
-    --card-foreground: 262 10% 15%;
+    --card-foreground: 296 100% 25%;
  
     --popover: 0 0% 100%;
-    --popover-foreground: 262 10% 15%;
+    --popover-foreground: 296 100% 25%;
  
-    --primary: 262 80% 50%;
-    --primary-foreground: 262 80% 98%;
+    --primary: 296 100% 50%;
+    --primary-foreground: 0 0% 100%;
  
-    --secondary: 262 30% 96%;
-    --secondary-foreground: 262 50% 20%;
+    --secondary: 296 100% 92%;
+    --secondary-foreground: 296 100% 30%;
  
-    --muted: 262 20% 96%;
-    --muted-foreground: 262 20% 45%;
+    --muted: 296 70% 95%;
+    --muted-foreground: 296 50% 40%;
  
-    --accent: 262 50% 96%;
-    --accent-foreground: 262 50% 20%;
+    --accent: 296 100% 90%;
+    --accent-foreground: 296 100% 30%;
  
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 262 30% 90%;
-    --input: 262 30% 90%;
-    --ring: 262 80% 50%;
+    --border: 296 70% 90%;
+    --input: 296 70% 90%;
+    --ring: 296 100% 50%;
+    
+    /* Custom color palette for light mode */
+    --color-pink-50: 300 100% 95%;  /* #ffe6fe */
+    --color-pink-100: 300 100% 82%; /* #ffa3fd */
+    --color-pink-200: 300 100% 74%; /* #fd7aff */
+    --color-pink-300: 297 100% 65%; /* #f652ff */
+    --color-pink-400: 297 100% 58%; /* #ed29ff */
+    --color-pink-500: 297 100% 50%; /* #e100ff */
+    --color-pink-600: 297 100% 43%; /* #b800d9 */
+    --color-pink-700: 296 100% 35%; /* #9200b3 */
+    --color-pink-800: 296 100% 27%; /* #6e008c */
+    --color-pink-900: 300 100% 20%; /* #4d0066 */
  
     --radius: 1rem;
   }
  
   .dark {
-    --background: 262 30% 5%;
-    --foreground: 262 10% 98%;
+    /* Dark mode - Deep Purple/Pink gradient */
+    --background: 288 45% 12%;
+    --foreground: 291 58% 90%;
  
-    --card: 262 30% 7%;
-    --card-foreground: 262 10% 98%;
+    --card: 288 45% 14%;
+    --card-foreground: 291 58% 90%;
  
-    --popover: 262 30% 7%;
-    --popover-foreground: 262 10% 98%;
+    --popover: 288 45% 14%;
+    --popover-foreground: 291 58% 90%;
  
-    --primary: 262 80% 50%;
-    --primary-foreground: 262 10% 98%;
+    --primary: 291 97% 44%;
+    --primary-foreground: 0 0% 100%;
  
-    --secondary: 262 30% 15%;
-    --secondary-foreground: 262 10% 98%;
+    --secondary: 288 45% 20%;
+    --secondary-foreground: 291 58% 90%;
  
-    --muted: 262 30% 15%;
-    --muted-foreground: 262 10% 80%;
+    --muted: 288 45% 20%;
+    --muted-foreground: 291 58% 70%;
  
-    --accent: 262 50% 15%;
-    --accent-foreground: 262 10% 98%;
+    --accent: 288 45% 25%;
+    --accent-foreground: 291 58% 90%;
  
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
  
-    --border: 262 30% 15%;
-    --input: 262 30% 15%;
-    --ring: 262 80% 80%;
+    --border: 288 45% 25%;
+    --input: 288 45% 25%;
+    --ring: 291 97% 60%;
+    
+    /* Custom color palette for dark mode */
+    --color-pink-50: 287 45% 12%;  /* #27112c */
+    --color-pink-100: 287 63% 17%; /* #3d0f45 */
+    --color-pink-200: 289 74% 21%; /* #520e5b */
+    --color-pink-300: 290 84% 26%; /* #700b7e */
+    --color-pink-400: 291 90% 35%; /* #9907ad */
+    --color-pink-500: 291 97% 44%; /* #c203dc */
+    --color-pink-600: 291 78% 53%; /* #d727e8 */
+    --color-pink-700: 290 83% 63%; /* #eb4ff3 */
+    --color-pink-800: 291 89% 72%; /* #f677f8 */
+    --color-pink-900: 291 89% 80%; /* #faa0f8 */
   }
 
   * {
